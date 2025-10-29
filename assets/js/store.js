@@ -1,17 +1,8 @@
-const NS = 'entregaIII/v1';
-
-
-function key(k) { return `${NS}:${k}`; }
-
+const NS = 'tarefas-app';
+const K = k => `${NS}:${k}`;
 
 export const store = {
-get(k, fallback=null) {
-try { return JSON.parse(localStorage.getItem(key(k))) ?? fallback; }
-catch { return fallback; }
-},
-set(k, val) { localStorage.setItem(key(k), JSON.stringify(val)); },
-remove(k) { localStorage.removeItem(key(k)); },
-clearAll() {
-Object.keys(localStorage).forEach(k => { if (k.startsWith(NS+':')) localStorage.removeItem(k); });
-}
+  get(k, fb=null){ try{ return JSON.parse(localStorage.getItem(K(k))) ?? fb; } catch{ return fb; } },
+  set(k, v){ localStorage.setItem(K(k), JSON.stringify(v)); },
+  remove(k){ localStorage.removeItem(K(k)); }
 };
