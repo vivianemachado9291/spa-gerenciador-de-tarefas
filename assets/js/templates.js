@@ -1,22 +1,18 @@
-export const Templates = {
-  home() {
-    return `
-      <section class="p-4">
-        <h1 class="h4">Gerenciador de Tarefas</h1>
-        <p>Este projeto foi desenvolvido como entrega da disciplina Experiência Prática III.</p>
-      </section>
-    `;
-  },
+tarefas() {
+  return `
+    <section class="p-4">
+      <h1 class="h4 mb-3">Tarefas</h1>
+      
+      <!-- Formulário de adição -->
+      <form id="formTarefa" class="d-flex gap-2 mb-3">
+        <input type="text" id="novaTarefa" class="form-control" placeholder="Digite sua tarefa..." required>
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+      </form>
 
-  cadastro() {
-    return `<section class="p-4"><h2>Cadastro</h2></section>`;
-  },
-
-  tarefas() {
-    return `<section class="p-4"><h2>Tarefas</h2></section>`;
-  },
-
-  perfil() {
-    return `<section class="p-4"><h2>Perfil</h2></section>`;
-  }
-};
+      <!-- Lista -->
+      <ul id="listaTarefas" class="list-group">
+        <!-- As tarefas aparecem aqui via JavaScript -->
+      </ul>
+    </section>
+  `;
+}
