@@ -1,25 +1,18 @@
-:root {
---brand: #0d6efd;
-}
-
-
 html { scroll-behavior: smooth; }
 
+#app .page-enter { 
+  animation: fade .2s ease-in; 
+}
 
-#app .page-enter { animation: fadeIn 220ms ease-in; }
+@keyframes fade { 
+  from { opacity:0; transform:translateY(6px) } 
+  to { opacity:1 } 
+}
 
+.invalid .form-control { 
+  border-color:#dc3545; 
+}
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-
-
-.form-hint { font-size: .875rem; color: #6c757d; }
-
-
-.invalid .form-control { border-color: #dc3545; }
-.invalid .form-text { color: #dc3545; }
-
-
-.valid .form-control { border-color: #198754; }
-
-
-.badge-soft { background: rgba(13,110,253,.1); color: var(--brand); }
+.valid .form-control { 
+  border-color:#198754; 
+}
