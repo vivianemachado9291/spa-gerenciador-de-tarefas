@@ -1,5 +1,4 @@
 # SPA Gerenciador de Tarefas
-Entrega III – Desenvolvimento Front-end (Experiência Prática)
 
 ## 📌 Descrição
 Aplicação web interativa construída com **JavaScript**, **Bootstrap 5** e **LocalStorage**.  
