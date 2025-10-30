@@ -1,45 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gerenciador de Tarefas</title>
-  <!-- Bootstrap 5 CSS (CDN) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Seu CSS -->
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#/home" aria-label="Início">
-        <img src="./assets/img/logo.svg" alt="" width="24" height="24">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#/cadastro">Cadastro</a></li>
-          <li class="nav-item"><a class="nav-link" href="#/tarefas">Tarefas</a></li>
-          <li class="nav-item"><a class="nav-link" href="#/perfil">Perfil</a></li>
-        </ul>
-      </div>
-    </div>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#/home">Home</a></li>
+      <li><a href="#/cadastro">Cadastro</a></li>
+      <li><a href="#/tarefas">Tarefas</a></li>
+      <li><a href="#/perfil">Perfil</a></li>
+    </ul>
   </nav>
 
-  <!-- CONTEÚDO -->
-  <main id="app" class="container py-4" aria-live="polite" aria-busy="false"></main>
+  <main id="app"></main>
 
-  <!-- RODAPÉ -->
-  <footer class="text-center py-3 mt-4 border-top">
-    <small>Projeto acadêmico – Experiência Prática III – Viviane Machado</small>
+  <footer>
+    Projeto acadêmico – Experiência Prática III – Viviane Machado
   </footer>
 
-  <!-- Bootstrap JS (bundle) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- App (ES Modules) -->
-  <script type="module" src="./app.js?v=6"></script>
+  <!-- Carrega o JS principal -->
+  <script type="module" src="./assets/js/app.js?v=9"></script>
 </body>
 </html>
