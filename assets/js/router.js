@@ -1,20 +1,16 @@
-import { Templates } from './templates.js';
-import { hydrateCadastro, hydrateTarefas } from './hydrate.js';
-
-const routes = {
-  '/home': Templates.home,
-  '/cadastro': Templates.cadastro,
-  '/tarefas': Templates.tarefas,
-  '/perfil': Templates.perfil
-};
+import { Templates } from "./templates.js";
+import { hydrateCadastro, hydrateTarefas } from "./hydrate.js";
 
 export function renderRoute() {
-  const app = document.getElementById('app');
-  const path = window.location.hash.replace('#', '') || '/home';
-  const template = routes[path] || Templates.home;
-  app.innerHTML = template();
+  const app = document.getElementById("app");
+  const hash = window.location.hash || "#/home";
+  const route = hash.replace("#/", "");
 
-  // Ativa interações específicas
-  if (path === '/cadastro') hydrateCadastro();
-  if (path === '/tarefas') hydrateTarefas();
+  app.innerHTML = Templates[route] ? Templates[route]() : "<h2>Página não encontrada</h2>";
+
+  if (route === "cadastro") hydrateCadastro();
+  if (route === "tarefas") hydrateTarefas();
 }
+
+window.addEventListener("hashchange", renderRoute);
+window.addEventListener("load", renderRoute);
