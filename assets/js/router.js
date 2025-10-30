@@ -3,7 +3,7 @@ import { mount, $ } from "./dom.js";
 import { store } from "./store.js";
 import { hydrateCadastro, hydrateTarefas, hydratePerfil } from "./hydrate.js";
 
-function render(path){
+function render(path) {
   let html = "";
   switch (path) {
     case "/cadastro": html = Templates.cadastro(); break;
@@ -18,11 +18,11 @@ function render(path){
   if (path === "/perfil")   hydratePerfil(document);
 }
 
-export function startRouter(){
+export function startRouter() {
   const resolve = () => {
     const path = (location.hash || "#/home").replace("#", "");
     render(path);
   };
-  window.addEventListener("hashchange", resolve);
-  window.addEventListener("load", resolve);
+  addEventListener("hashchange", resolve);
+  addEventListener("load", resolve);
 }
