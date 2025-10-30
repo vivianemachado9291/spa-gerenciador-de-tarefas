@@ -1,9 +1,13 @@
 export const Templates = {
-  home: () => `
-    <h1>Bem-vinda ao Gerenciador de Tarefas</h1>
-    <p>Use o menu acima para navegar.</p>
-  `,
-
+  home() {
+  return `
+    <section>
+      <h1>Bem-vinda ao Gerenciador de Tarefas</h1>
+      <p>Aqui você pode anotar suas tarefas, acompanhar o que já foi feito e marcar como concluídas de forma simples e rápida.</p>
+      <p><em>Projeto acadêmico – Experiência Prática III – Viviane Machado</em></p>
+    </section>
+  `;
+}
   cadastro: () => `
     <h2>Cadastro</h2>
     <form id="cadastroForm">
