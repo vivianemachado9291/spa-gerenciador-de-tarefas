@@ -16,7 +16,7 @@ body {
 
 /* Navbar */
 .navbar {
-  background-color: #343a40;
+  background-color: #e9ecef;     /* fundo mais claro */
   padding: 15px 20px;
   display: flex;
   justify-content: center;
@@ -25,24 +25,42 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid #ccc;
 }
 
-/* Links da navbar */
-.navbar a {
-  color: #f8f9fa;
-  text-decoration: none;
+/* Links e botões da navbar */
+.navbar a,
+.navbar button {
+  color: black !important;      /* 🔥 texto sempre preto */
   font-weight: bold;
   font-size: 16px;
-  display: inline;          /* 🔥 Corrigido: inline e não block */
+  display: inline-block;
   padding: 6px 12px;
-  border-radius: 4px;
-  transition: background 0.3s ease, color 0.3s ease;
-  background: transparent;  /* 🔥 Sem fundo branco */
+  border-radius: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.navbar a:hover {
-  background: #495057;
-  color: #fff;
+/* Hover */
+.navbar a:hover,
+.navbar button:hover:not(:disabled) {
+  background: #ddd;
+}
+
+/* Botão ativo */
+.navbar button.active {
+  background: #bbb;
+  color: black !important;
+}
+
+/* Botão desabilitado */
+.navbar button:disabled {
+  background: #e0e0e0;
+  color: black !important;   /* 🔥 mesmo desabilitado fica preto */
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 /* Conteúdo principal */
@@ -59,7 +77,7 @@ body {
 /* Títulos */
 h1, h2 {
   margin-bottom: 15px;
-  color: #343a40;
+  color: #222;
 }
 
 /* Formulários */
@@ -76,7 +94,7 @@ input, button {
   border: 1px solid #ccc;
 }
 
-/* Botões */
+/* Botões gerais */
 button {
   cursor: pointer;
   background-color: #007bff;
@@ -126,7 +144,8 @@ li {
 footer {
   text-align: center;
   padding: 15px;
-  background: #343a40;
-  color: #f8f9fa;
+  background: #e9ecef;
+  border-top: 1px solid #ccc;
+  color: #333;
   font-size: 14px;
 }
