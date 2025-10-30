@@ -1,28 +1,20 @@
-import { Templates } from "./templates.js";
-import { mount, $ } from "./dom.js";
-import { store } from "./store.js";
-import { hydrateCadastro, hydrateTarefas, hydratePerfil } from "./hydrate.js";
+import { Templates } from './templates.js';
+import { hydrateCadastro, hydrateTarefas } from './hydrate.js';
 
-function render(path) {
-  let html = "";
-  switch (path) {
-    case "/cadastro": html = Templates.cadastro(); break;
-    case "/tarefas":  html = Templates.tarefas();  break;
-    case "/perfil":   html = Templates.perfil(store.get("profile", {})); break;
-    default:          html = Templates.home();
-  }
-  mount($("#app"), html);
+const routes = {
+  '/home': Templates.home,
+  '/cadastro': Templates.cadastro,
+  '/tarefas': Templates.tarefas,
+  '/perfil': Templates.perfil
+};
 
-  if (path === "/cadastro") hydrateCadastro(document);
-  if (path === "/tarefas")  hydrateTarefas(document);
-  if (path === "/perfil")   hydratePerfil(document);
-}
+export function renderRoute() {
+  const app = document.getElementById('app');
+  const path = window.location.hash.replace('#', '') || '/home';
+  const template = routes[path] || Templates.home;
+  app.innerHTML = template();
 
-export function startRouter() {
-  const resolve = () => {
-    const path = (location.hash || "#/home").replace("#", "");
-    render(path);
-  };
-  addEventListener("hashchange", resolve);
-  addEventListener("load", resolve);
+  // Ativa interações específicas
+  if (path === '/cadastro') hydrateCadastro();
+  if (path === '/tarefas') hydrateTarefas();
 }
