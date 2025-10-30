@@ -1,78 +1,38 @@
-import { $ } from "./dom.js";
-import { store } from "./store.js";
-
-const K_PROFILE = "profile";
-const K_TASKS   = "tasks";
-
-export function hydrateCadastro(root = document) {
-  const form = $("#formCadastro", root);
-  const msg  = $("#cadastroMsg", root);
-  if (!form) return;
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const nome   = $("#nome").value.trim();
-    const email  = $("#email").value.trim();
-    const email2 = $("#email2").value.trim();
-    const senha  = $("#senha").value;
-    const senha2 = $("#senha2").value;
-
-    if (email !== email2 || senha !== senha2) {
-      msg.innerHTML = `<div class="alert alert-danger">Emails ou senhas não coincidem.</div>`;
-      return;
-    }
-
-    store.set(K_PROFILE, { nome, email }); // (não salvamos senha)
-    msg.innerHTML = `<div class="alert alert-success">
-      Cadastro salvo! <a class="alert-link" href="#/perfil">Ver perfil</a>
-    </div>`;
-  });
+export function hydrateCadastro() {
+  const form = document.getElementById('formCadastro');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("Usuário cadastrado com sucesso!");
+      form.reset();
+    });
+  }
 }
 
-export function hydrateTarefas(root = document) {
-  const form  = $("#formTarefa", root);
-  const input = $("#novaTarefa", root);
-  const lista = $("#listaTarefas", root);
-  if (!form || !input || !lista) return;
+export function hydrateTarefas() {
+  const btn = document.getElementById('addTarefa');
+  const input = document.getElementById('novaTarefa');
+  const lista = document.getElementById('listaTarefas');
 
-  let tarefas = store.get(K_TASKS, []); // [{text, done}]
+  if (btn && input && lista) {
+    btn.addEventListener('click', () => {
+      if (input.value.trim() === '') return;
+      const li = document.createElement('li');
+      li.textContent = input.value;
 
-  const render = () => {
-    lista.innerHTML = tarefas.map((t, i) => `
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span style="text-decoration:${t.done ? "line-through" : "none"}">${t.text}</span>
-        <div class="d-flex gap-2">
-          <button class="btn btn-sm btn-success" data-action="toggle" data-i="${i}">Concluir</button>
-          <button class="btn btn-sm btn-danger"  data-action="remove" data-i="${i}">Excluir</button>
-        </div>
-      </li>`).join("");
-    store.set(K_TASKS, tarefas);
-  };
-  render();
+      const concluir = document.createElement('button');
+      concluir.textContent = "✔";
+      concluir.onclick = () => li.style.textDecoration = "line-through";
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const val = input.value.trim();
-    if (!val) return;
-    tarefas.push({ text: val, done: false });
-    input.value = "";
-    render();
-  });
+      const excluir = document.createElement('button');
+      excluir.textContent = "❌";
+      excluir.onclick = () => li.remove();
 
-  lista.addEventListener("click", (e) => {
-    const btn = e.target.closest("button");
-    if (!btn) return;
-    const i = Number(btn.dataset.i);
-    if (btn.dataset.action === "toggle") tarefas[i].done = !tarefas[i].done;
-    if (btn.dataset.action === "remove") tarefas.splice(i, 1);
-    render();
-  });
-}
+      li.appendChild(concluir);
+      li.appendChild(excluir);
+      lista.appendChild(li);
 
-export function hydratePerfil(root = document) {
-  const btn = $("#apagarPerfil", root);
-  if (btn) btn.addEventListener("click", () => {
-    store.remove(K_PROFILE);
-    location.hash = "#/cadastro";
-  });
+      input.value = '';
+    });
+  }
 }
