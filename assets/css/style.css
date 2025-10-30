@@ -6,7 +6,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Layout geral */
 body {
   background-color: #f8f9fa;
   color: #333;
@@ -15,31 +14,30 @@ body {
   min-height: 100vh;
 }
 
-main {
-  flex: 1;
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
 /* Navbar */
 .navbar {
   background-color: #343a40;
-  color: #f8f9fa;
   padding: 15px 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
+/* Links da navbar */
 .navbar a {
   color: #f8f9fa;
   text-decoration: none;
   font-weight: bold;
-  padding: 0.5rem 1rem;
+  font-size: 16px;
+  display: inline;          /* 🔥 Corrigido: inline e não block */
+  padding: 6px 12px;
   border-radius: 4px;
-  transition: background 0.3s;
-  display: inline-block; /* Corrigido para não virar blocão */
+  transition: background 0.3s ease, color 0.3s ease;
+  background: transparent;  /* 🔥 Sem fundo branco */
 }
 
 .navbar a:hover {
@@ -47,14 +45,20 @@ main {
   color: #fff;
 }
 
-/* Conteúdo centralizado */
+/* Conteúdo principal */
 .container {
-  text-align: center;
-  margin-top: 30px;
+  flex: 1;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Títulos */
 h1, h2 {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   color: #343a40;
 }
 
@@ -62,84 +66,67 @@ h1, h2 {
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  gap: 10px;
 }
 
-input, textarea {
+input, button {
   padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
   border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
+/* Botões */
 button {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
-  font-weight: bold;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
   transition: background 0.3s;
 }
 
-button.primary {
-  background: #007bff;
-  color: #fff;
-}
-
-button.primary:hover {
-  background: #0056b3;
+button:hover {
+  background-color: #0056b3;
 }
 
 button.success {
-  background: #28a745;
-  color: #fff;
+  background-color: #28a745;
 }
 
 button.success:hover {
-  background: #1e7e34;
+  background-color: #218838;
 }
 
 button.danger {
-  background: #dc3545;
-  color: #fff;
+  background-color: #dc3545;
 }
 
 button.danger:hover {
-  background: #a71d2a;
+  background-color: #c82333;
 }
 
 /* Lista de tarefas */
 ul {
   list-style: none;
+  margin-top: 15px;
   padding: 0;
-  margin-top: 20px;
 }
 
 li {
-  background: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-li.done {
-  text-decoration: line-through;
-  color: #6c757d;
+  padding: 10px;
+  background: #f1f1f1;
+  border-radius: 4px;
+  margin-bottom: 8px;
 }
 
 /* Footer */
 footer {
-  background: #f1f1f1;
-  padding: 10px;
   text-align: center;
+  padding: 15px;
+  background: #343a40;
+  color: #f8f9fa;
   font-size: 14px;
-  color: #666;
-  border-top: 1px solid #ddd;
 }
