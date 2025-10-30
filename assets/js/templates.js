@@ -3,13 +3,10 @@ export const Templates = {
     return `
       <section class="d-flex flex-column gap-3 p-4">
         <h1 class="h4">Gerenciador de Tarefas</h1>
-        <p>
-          Protótipo acadêmico que demonstra uma <em>SPA</em> com JavaScript,
-          Bootstrap e <code>localStorage</code>.
-        </p>
+        <p>Protótipo acadêmico que demonstra uma <em>SPA</em> com JavaScript, Bootstrap e <code>localStorage</code>.</p>
         <ul>
           <li>Cadastro de usuário com validação;</li>
-          <li>Tarefas: adicionar e excluir (persistem no navegador);</li>
+          <li>Tarefas: adicionar, concluir e excluir (persistem no navegador);</li>
           <li>Perfil exibindo dados salvos;</li>
           <li>Navegação sem recarregar a página.</li>
         </ul>
