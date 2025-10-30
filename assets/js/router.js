@@ -1,4 +1,3 @@
-// router.js
 import { Templates } from "./templates.js";
 import { mount, $ } from "./dom.js";
 import { store } from "./store.js";
