@@ -14,129 +14,86 @@ body {
   min-height: 100vh;
 }
 
-/* NAVBAR */
 .navbar {
-  background-color: #212529;
-  padding: 10px 20px;
+  background: #343a40;
+  padding: 1rem;
 }
 
 .navbar ul {
-  display: flex;
   list-style: none;
+  display: flex;
+  gap: 1rem;
   justify-content: flex-end;
 }
 
-.navbar li {
-  margin-left: 20px;
-}
-
 .navbar a {
+  color: #fff;
   text-decoration: none;
-  color: #f8f9fa;
   font-weight: bold;
-  transition: color 0.3s;
 }
 
-.navbar a:hover {
-  color: #0d6efd;
-}
-
-/* CONTEÚDO PRINCIPAL */
-main {
-  flex: 1;
-  padding: 30px;
+.container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 2rem auto;
+  padding: 1rem;
 }
 
-/* FORMULÁRIOS */
+h1, h2 {
+  margin-bottom: 1rem;
+  color: #222;
+}
+
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
+  gap: 0.5rem;
 }
 
 form input, form button {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  padding: 0.6rem;
+  font-size: 1rem;
 }
 
-form button {
-  background-color: #0d6efd;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+button {
   border: none;
-  transition: background-color 0.3s;
-}
-
-form button:hover {
-  background-color: #0b5ed7;
-}
-
-/* TAREFAS */
-#novaTarefa {
-  padding: 10px;
-  width: 70%;
-  margin-right: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-#addTarefa {
-  padding: 10px 15px;
-  border: none;
-  background-color: #198754;
-  color: white;
-  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  border-radius: 4px;
 }
 
-#addTarefa:hover {
-  background-color: #157347;
+button.add {
+  background: #007bff;
+  color: white;
 }
 
-#listaTarefas {
-  margin-top: 20px;
+button.done {
+  background: #28a745;
+  color: white;
+}
+
+button.delete {
+  background: #dc3545;
+  color: white;
+}
+
+ul {
   list-style: none;
+  margin-top: 1rem;
 }
 
-#listaTarefas li {
-  background: white;
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 6px;
-  margin-bottom: 10px;
+li {
+  padding: 0.5rem;
+  background: #fff;
+  margin-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-#listaTarefas button {
-  margin-left: 10px;
-  padding: 5px 8px;
-  border: none;
+  border: 1px solid #ddd;
   border-radius: 4px;
-  cursor: pointer;
 }
 
-#listaTarefas button:first-of-type {
-  background-color: #0d6efd;
-  color: white;
-}
-
-#listaTarefas button:last-of-type {
-  background-color: #dc3545;
-  color: white;
-}
-
-/* FOOTER */
 footer {
   text-align: center;
-  padding: 15px;
+  margin-top: auto;
+  padding: 1rem;
   background: #f1f1f1;
-  font-size: 14px;
 }
