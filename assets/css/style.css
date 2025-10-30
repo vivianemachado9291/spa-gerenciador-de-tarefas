@@ -39,6 +39,7 @@ main {
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background 0.3s;
+  display: inline-block; /* Corrigido para não virar blocão */
 }
 
 .navbar a:hover {
